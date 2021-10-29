@@ -1,0 +1,42 @@
+<header class="text-gray-400 bg-gray-900 body-font">
+    <div class="container flex flex-col flex-wrap items-center p-5 mx-auto lg:flex-row">
+        <a href="/" class="flex items-center mb-4 font-medium text-white title-font lg:mb-0">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 p-2 text-white bg-indigo-500 rounded-full" viewBox="0 0 24 24">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+            <span class="ml-3 text-xl">CRM PRO</span>
+        </a>
+        <nav class="flex flex-wrap items-center justify-center text-base lg:mr-auto lg:ml-4 lg:py-1 lg:pl-4
+        {% if request.user.is_authenticated %}
+        lg:border-l lg:border-gray-700
+        {% endif %}">
+            {% if request.user.is_authenticated %}
+            <a href="{% url 'deals:deal-list' %}" class="mr-5 hover:text-gray-50">Deals</a>
+            <a href="{% url 'companies:company-list' %}" class="mr-5 hover:text-gray-50">Companies</a>
+            <a href="{% url 'contacts:contact-list' %}" class="mr-5 hover:text-gray-50">Contacts</a>
+            <a href="{% url 'products:product-list' %}" class="mr-5 hover:text-gray-50">Products</a>
+            <a href="{% url 'tasks:task-list' %}" class="mr-5 hover:text-gray-50">Tasks</a>
+            <a href="{% url 'events:event-list' %}" class="mr-5 hover:text-gray-50">Events</a> {% if request.user.is_superuser %}
+            <a href="{% url 'events:event-list' %}" class="mr-5 hover:text-gray-50">Users</a> {% endif %} {% endif %}
+        </nav>
+        {% if request.user.is_authenticated %}
+        <span class="inline-flex items-center px-3 py-1 mt-4 text-base border-0 rounded lg:mt-0">
+            Welcome, {{ request.user.first_name }} {{ request.user.last_name }}
+        </span>
+        <a href="{% url 'logout' %}" class="inline-flex items-center px-3 py-1 mt-4 text-base bg-gray-800 border-0 rounded focus:outline-none hover:bg-gray-700 lg:mt-0">
+            Logout
+            <svg fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+            </svg>
+        </a> {% else %}
+        <a href="{% url 'signup' %}" class="inline-flex items-center px-3 py-1 mt-4 text-base border-0 rounded hover:text-green-700 md:mt-0">
+            Sign Up
+        </a>
+        <a href="{% url 'login' %}" class="inline-flex items-center px-3 py-1 mt-4 text-base bg-gray-800 border-0 rounded focus:outline-none hover:bg-gray-700 md:mt-0">
+            Login
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+        </a> {% endif %}
+    </div>
+</header>

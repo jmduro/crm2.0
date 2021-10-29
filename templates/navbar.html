@@ -11,13 +11,13 @@
         lg:border-l lg:border-gray-700
         {% endif %}">
             {% if request.user.is_authenticated %}
-            <a href="{% url 'deals:deal-list' %}" class="mr-5 hover:text-gray-50">Deals</a>
+            <a href="#" class="mr-5 hover:text-gray-50">Deals</a>
             <a href="{% url 'companies:company-list' %}" class="mr-5 hover:text-gray-50">Companies</a>
-            <a href="{% url 'contacts:contact-list' %}" class="mr-5 hover:text-gray-50">Contacts</a>
-            <a href="{% url 'products:product-list' %}" class="mr-5 hover:text-gray-50">Products</a>
-            <a href="{% url 'tasks:task-list' %}" class="mr-5 hover:text-gray-50">Tasks</a>
-            <a href="{% url 'events:event-list' %}" class="mr-5 hover:text-gray-50">Events</a> {% if request.user.is_superuser %}
-            <a href="{% url 'events:event-list' %}" class="mr-5 hover:text-gray-50">Users</a> {% endif %} {% endif %}
+            <a href="#" class="mr-5 hover:text-gray-50">Contacts</a>
+            <a href="#" class="mr-5 hover:text-gray-50">Products</a>
+            <a href="#" class="mr-5 hover:text-gray-50">Tasks</a>
+            <a href="#" class="mr-5 hover:text-gray-50">Events</a> {% if request.user.is_superuser %}
+            <a href="#" class="mr-5 hover:text-gray-50">Users</a> {% endif %} {% endif %}
         </nav>
         {% if request.user.is_authenticated %}
         <span class="inline-flex items-center px-3 py-1 mt-4 text-base border-0 rounded lg:mt-0">

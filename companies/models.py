@@ -1,10 +1,12 @@
 from django.db import models
+from users.models import User
 
 # Create your models here.
 
 
 class Company(models.Model):
 
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     company_name = models.CharField(max_length=50, unique=True)
     phone = models.CharField(max_length=25, blank=True)
     website = models.CharField(max_length=200, blank=True)

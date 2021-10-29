@@ -1,4 +1,4 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %} {% load tailwind_filters %} {% block content %}
 
 <section class="text-gray-400 bg-gray-900 body-font h-screen">
     <div class="container px-5 py-24 mx-auto flex flex-wrap items-center">
@@ -10,7 +10,7 @@
             <h2 class="text-white text-lg font-medium title-font mb-5">Login</h2>
             <form method="post">
                 <div class="relative mb-4">
-                    {% csrf_token %} {{ form.as_p }}
+                    {% csrf_token %} {{ form|crispy }}
                 </div>
                 <div>
                     <a href="{% url 'reset-password' %}" class="text-xs mt-3 hover:text-red-500">Forgot password?</a>

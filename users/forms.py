@@ -16,3 +16,11 @@ class CustomUserCreationForm(UserCreationForm):
                   'phone'
                   )
         field_classes = {'username': UsernameField}
+
+    def __init__(self, *args, **kwargs):
+        super(CustomUserCreationForm, self).__init__(*args, **kwargs)
+        self.fields['username'].widget.attrs = {'placeholder': 'Username'}
+        self.fields['email'].widget.attrs = {'placeholder': 'example@mail.com'}
+        self.fields['first_name'].widget.attrs = {'placeholder': 'First name'}
+        self.fields['last_name'].widget.attrs = {'placeholder': 'Last name'}
+        self.fields['phone'].widget.attrs = {'placeholder': 'Phone number'}

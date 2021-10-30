@@ -1,20 +1,20 @@
 {% extends "base.html" %} {% load tailwind_filters %} {% block content %}
 
-<section class="text-gray-400 bg-gray-900 body-font">
+<section class="text-gray-400 bg-gray-900 body-font min-h-screen max-h-full">
     <div class="container px-5 py-24 mx-auto">
-        <div class="flex flex-col text-center w-full mb-12">
-            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">Create a new user</h1>
-            <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Please, don't forget your username and password, don't be a fool :c. with love Alejo</p>
+        <div class="lg:w-2/3 xl:w-2/5 w-full flex flex-col text-center mx-auto mb-12 px-8 sm:px-0">
+            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">This is the start of your new account</h1>
+            <p class="leading-relaxed text-base">Please, provide the information listed below.</p>
         </div>
-        <div class="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto px-8 sm:px-0 items-end sm:space-x-4 sm:space-y-0 space-y-4">
+        <div class="lg:w-2/3 xl:w-2/5 w-full sm:flex-row flex flex-col mx-auto px-8 sm:px-0 items-end sm:space-x-4 sm:space-y-0 space-y-4">
             <div class="relative sm:mb-0 flex-grow w-full">
                 <form method="post">
                     {% csrf_token %} {{ form|crispy }}
-                    <div>
-                        <button type="submit" class="text-white align-middle bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">Sign Up</button>
+                    <div class="flex flex-col flex-wrap place-items-center">
+                        <button type="submit" class="w-full text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">Sign Up</button>
+                        <a href="{% url 'login' %}" class="text-sm mt-3 hover:text-indigo-500">Already have an account?</a>
                     </div>
                 </form>
-                <a href="{% url 'login' %}" class="text-xs mt-3 hover:text-indigo-500">Already have an account?</a>
             </div>
         </div>
     </div>

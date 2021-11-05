@@ -17,7 +17,7 @@ class Contact(models.Model):
     phone = models.CharField(max_length=25, blank=True)
     home_phone = models.CharField(max_length=25, blank=True)
     email_opt_out = models.EmailField(blank=True)
-    description = models.TextField(max_length=250, blank=True)
+    description = models.CharField(max_length=250, blank=True)
     featured = models.BooleanField(default=False)
 
     def __str__(self):

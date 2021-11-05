@@ -10,6 +10,7 @@ from .forms import ContactModelForm
 
 class ContactListView(LoginRequiredMixin, generic.ListView):
     template_name = 'contacts/contact_list.html'
+    context_object_name = 'contacts'
 
     def get_queryset(self):
         active_user = self.request.user
@@ -26,7 +27,6 @@ class ContactListView(LoginRequiredMixin, generic.ListView):
 
 class ContactDetailView(LoginRequiredMixin, generic.DetailView):
     template_name = 'contacts/contact_detail.html'
-    context_object_name = 'company'
 
     def get_queryset(self):
         active_user = self.request.user
@@ -35,6 +35,8 @@ class ContactDetailView(LoginRequiredMixin, generic.DetailView):
 
 class ContactCreateView(LoginRequiredMixin, generic.CreateView):
     template_name = 'contacts/contact_create.html'
+    context_object_name = 'contacts'
+
     form_class = ContactModelForm
 
     def get_success_url(self):

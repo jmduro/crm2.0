@@ -3,8 +3,30 @@ from users.mixins import StaffAndLoginRequiredMixin
 from django.views import generic
 from .models import User
 from .forms import CustomUserCreationForm
+from companies.models import Company
+from contacts.models import Contact
+from deals.models import Deal
 
 # Create your views here.
+
+
+def search(request):
+    if request.method == 'POST':
+        search = request.POST.get('search')
+        print(search)
+        companies = Company.objects.filter(company_name__contains=search)
+        contacts = Contact.objects.filter(first_name__contains=search)
+        deals = Deal.objects.filter(deal_name__contains=search)
+        context = {
+            'search': search,
+            'companies': companies,
+            'contacts': contacts,
+            'deals': deals
+        }
+
+        return render(request, 'search.html', context)
+    else:
+        return render(request, 'search.html', {})
 
 
 class SignupView(generic.CreateView):
@@ -17,6 +39,10 @@ class SignupView(generic.CreateView):
 
 class LandingPageView(generic.TemplateView):
     template_name = "landing.html"
+
+
+class SearchView(generic.TemplateView):
+    template_name = "search.html"
 
 
 class SecondPageView(generic.TemplateView):

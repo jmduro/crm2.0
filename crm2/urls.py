@@ -8,7 +8,7 @@ from django.contrib.auth.views import (LoginView,
                                        PasswordResetConfirmView,
                                        PasswordResetCompleteView)
 from django.urls import path, include
-from users.views import LandingPageView, SignupView
+from users.views import LandingPageView, SignupView, SearchView, search
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,7 +29,8 @@ urlpatterns = [
     path('companies/', include('companies.urls', namespace='companies')),
     path('contacts/', include('contacts.urls', namespace='contacts')),
     path('tasks/', include('tasks.urls', namespace='tasks')),
-    # path('deals/', include('deals.urls', namespace="deals")),
+    path('deals/', include('deals.urls', namespace="deals")),
+    path('search/', search, name='search')
 ]
 
 if settings.DEBUG:

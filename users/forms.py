@@ -26,6 +26,8 @@ class CustomUserCreationForm(UserCreationForm):
         self.fields['first_name'].widget.attrs = {'placeholder': 'First name'}
         self.fields['last_name'].widget.attrs = {'placeholder': 'Last name'}
         self.fields['phone'].widget.attrs = {'placeholder': 'Phone number'}
+        self.helper = FormHelper()
+        self.helper.label_class = 'block text-red-700 text-sm font-bold mb-2'
         self.helper.layout = Layout(
                 'username',
                 'email',

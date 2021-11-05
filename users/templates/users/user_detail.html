@@ -1,6 +1,6 @@
 {% extends "base.html" %} {% block content %}
 
-<section class="max-h-screen min-h-full overflow-hidden text-gray-400 bg-gray-900 body-font">
+<section class="max-h-full min-h-screen overflow-hidden text-gray-400 bg-gray-900 body-font">
     <div class="container px-5 py-24 mx-auto">
         <div class="flex flex-wrap mx-auto lg:w-4/5">
             <div class="w-full mb-6 lg:w-1/2 lg:pr-10 lg:py-6 lg:mb-0">
@@ -19,10 +19,6 @@
                 <div class="flex py-2 border-t border-gray-800">
                     <span class="text-gray-500">Username</span>
                     <span class="ml-auto text-white">{{ user.username }}</span>
-                </div>
-                <div class="flex py-2 border-t border-gray-800">
-                    <span class="text-gray-500">Password</span>
-                    <span class="ml-auto text-white">{{ user.password }}</span>
                 </div>
                 <div class="flex py-2 mb-6 border-t border-b border-gray-800">
                     <span class="text-gray-500">Phone</span>

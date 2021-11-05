@@ -12,8 +12,7 @@ class Contact(models.Model):
     last_name = models.CharField(max_length=50)
     title = models.CharField(max_length=50, blank=True)
     email = models.EmailField(blank=True)
-    company_name = models.ForeignKey(
-        Company, null=True, blank=True, on_delete=models.SET_NULL)
+    company_name = models.ForeignKey(Company, on_delete=models.CASCADE)
     mobile = models.CharField(max_length=25, blank=True)
     phone = models.CharField(max_length=25, blank=True)
     home_phone = models.CharField(max_length=25, blank=True)

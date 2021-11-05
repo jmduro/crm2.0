@@ -14,10 +14,10 @@
             <a href="{% url 'deals:deal-list' %}" class="mr-5 hover:text-gray-50">Deals</a>
             <a href="{% url 'companies:company-list' %}" class="mr-5 hover:text-gray-50">Companies</a>
             <a href="{% url 'contacts:contact-list' %}" class="mr-5 hover:text-gray-50">Contacts</a>
-            <a href="#" class="mr-5 hover:text-gray-50">Products</a>
-            <a href="#" class="mr-5 hover:text-gray-50">Tasks</a>
-            <a href="#" class="mr-5 hover:text-gray-50">Events</a> {% if request.user.is_superuser %}
-            <a href="#" class="mr-5 hover:text-gray-50">Users</a> {% endif %} {% endif %}
+            <a href="{% url 'products:product-list' %}" class="mr-5 hover:text-gray-50">Products</a>
+            <a href="{% url 'tasks:task-list' %}" class="mr-5 hover:text-gray-50">Tasks</a>
+            <a href="{% url 'events:event-list' %}" class="mr-5 hover:text-gray-50">Events</a> {% if request.user.is_superuser %}
+            <a href="{% url 'users:user-list' %}" class="mr-5 hover:text-gray-50">Users</a> {% endif %} {% endif %}
         </nav>
         {% if request.user.is_authenticated %}
         <div class="pt-2 relative text-gray-600">

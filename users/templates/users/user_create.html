@@ -3,17 +3,17 @@
 <section class="max-h-full min-h-screen overflow-hidden text-gray-400 bg-gray-900 body-font">
     <div class="container px-5 py-24 mx-auto">
         <div class="flex flex-wrap mx-auto lg:w-4/5">
-            <a href="{% url 'users:user-list' %}" class="px-6 py-3 text-white bg-red-500 border-0 rounded hover:bg-red-600">Go back to users</a>
-        </div>
-        <div class="flex flex-wrap mx-auto lg:w-4/5">
-            <div class="w-full mb-6 lg:w-1/2 lg:pr-10 lg:py-6 lg:mb-0">
-                <h2 class="text-sm tracking-widest text-gray-500 title-font">NEW USER</h2>
+            <div class="max-w-full mx-auto mb-6 lg:w-1/2 lg:pr-10 lg:py-6 lg:mb-0">
+                <div class="mb-10">
+                    <a href="{% url 'users:user-list' %}" class="px-6 py-2 text-white bg-red-500 border-0 rounded hover:bg-red-600 text-center">Go back to users</a>
+                </div>
+                <h2 class="text-sm tracking-widest text-gray-500 title-font">USER</h2>
+                <h1 class="mb-4 text-3xl font-medium text-white title-font">Create new user</h1>
                 <form method="post">
                     {% csrf_token %} {% crispy form %}
                 </form>
             </div>
         </div>
-    </div>
 </section>
 
 {% endblock content %}

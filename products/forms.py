@@ -1,7 +1,7 @@
 from django import forms
 from .models import Product
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Submit, Field
+from crispy_forms.layout import Layout, Submit, Field, Div
 
 class ProductModelForm(forms.ModelForm):
     class Meta:
@@ -29,5 +29,6 @@ class ProductModelForm(forms.ModelForm):
             'unit_price',
             'description',
             'product_active',
-            Submit('submit', 'Submit', css_class="flex px-6 py-2 ml-auto text-white bg-green-500 border-0 rounded focus:outline-none hover:bg-green-600")
+            Div(
+                Submit('submit', 'Submit', css_class="px-6 py-2 text-white bg-green-500 border-0 rounded hover:bg-green-600 text-center"), css_class='flex flex-col flex-wrap w-1/3 mx-auto mt-10'),
         )

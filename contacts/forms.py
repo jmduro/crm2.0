@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth import get_user_model
 from .models import Contact
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Submit
+from crispy_forms.layout import Layout, Submit, Div
 
 User = get_user_model()
 
@@ -43,5 +43,6 @@ class ContactModelForm(forms.ModelForm):
             'email_opt_out',
             'description',
             'featured',
-            Submit('submit', 'Submit', css_class="flex px-6 py-2 ml-auto text-white bg-red-500 border-0 rounded focus:outline-none hover:bg-red-600")
+            Div(
+                    Submit('submit', 'Submit', css_class="px-6 py-2 text-white bg-red-500 border-0 rounded hover:bg-red-600 text-center"), css_class='flex flex-col flex-wrap w-1/3 mx-auto mt-10'),
         )

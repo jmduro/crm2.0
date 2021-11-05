@@ -1,7 +1,7 @@
 from django import forms
 from .models import *
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Submit, Field
+from crispy_forms.layout import Layout, Submit, Field, Div
 
 
 class CompanyModelForm(forms.ModelForm):
@@ -38,5 +38,6 @@ class CompanyModelForm(forms.ModelForm):
             'billing_country',
             'billing_code',
             'featured',
-            Submit('submit', 'Submit', css_class="flex px-6 py-2 ml-auto text-white bg-purple-500 border-0 rounded focus:outline-none hover:bg-purple-600")
+            Div(
+                    Submit('submit', 'Submit', css_class="px-6 py-2 text-white bg-purple-500 border-0 rounded hover:bg-purple-600 text-center"), css_class='flex flex-col flex-wrap w-1/3 mx-auto mt-10'),
         )

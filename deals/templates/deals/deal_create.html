@@ -2,12 +2,13 @@
 
 <section class="overflow-hidden text-gray-400 bg-gray-900 body-font min-h-screen max-h-full">
     <div class="container px-5 py-24 mx-auto">
-        <div class="flex flex-wrap mx-auto mb-4 lg:w-4/5">
-            <a href="{% url 'deals:deal-list' %}" class="px-6 py-2 text-white bg-indigo-500 border-0 rounded hover:bg-indigo-600">Go back to deals</a>
-        </div>
         <div class="flex flex-wrap mx-auto lg:w-4/5">
-            <div class="w-full mb-6 lg:w-1/2 lg:pr-10 lg:py-6 lg:mb-0">
-                <h2 class="text-sm tracking-widest text-gray-500 title-font mb-4">NEW DEAL</h2>
+            <div class="max-w-full mx-auto mb-6 lg:w-1/2 lg:pr-10 lg:py-6 lg:mb-0">
+                <div class="mb-10">
+                    <a href="{% url 'deals:deal-list' %}" class="px-6 py-2 text-white bg-indigo-500 border-0 rounded hover:bg-indigo-600 text-center">Go back to deals</a>
+                </div>
+                <h2 class="text-sm tracking-widest text-gray-500 title-font">DEAL</h2>
+                <h1 class="mb-4 text-3xl font-medium text-white title-font">Create new deal</h1>
                 <form method="post">
                     {% csrf_token %} {% crispy form %}
                 </form>

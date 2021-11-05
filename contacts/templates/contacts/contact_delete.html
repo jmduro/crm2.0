@@ -14,7 +14,7 @@
                 <p class="mb-4 leading-relaxed">Are you sure you want to delete this contact?</p>
                 <p class="mb-4 leading-relaxed">This action cannot be reversed</p>
                 <form method="post">
-                    {% csrf_token %} {{ form.as_p }}
+                    {% csrf_token %} {{ form }}
                     <button type="submit" class="flex px-6 py-2 ml-auto text-white bg-red-500 border-0 rounded focus:outline-none hover:bg-red-600">Delete</button>
                 </form>
             </div>

@@ -1,7 +1,10 @@
 from django import forms
 from .models import *
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Submit, Field
+from crispy_forms.layout import Div, Layout, Submit, Field
+
+Field.template = 'custom_fields/custom_field.html'
+
 
 class TaskModelForm(forms.ModelForm):
     class Meta:
@@ -24,10 +27,11 @@ class TaskModelForm(forms.ModelForm):
         self.helper.label_class = 'block text-blue-700 text-sm font-bold mb-2'
         self.helper.layout = Layout(
             'task_name',
-            'due_date',
+            Field('due_date', autocomplete='off'),
             'repeat',
             'related_to',
             'description',
             'priority',
-            Submit('submit', 'Submit', css_class="flex px-6 py-2 ml-auto text-white bg-blue-500 border-0 rounded focus:outline-none hover:bg-blue-600")
+            Div(
+                Submit('submit', 'Submit', css_class="px-6 py-2 text-white bg-blue-500 border-0 rounded hover:bg-blue-600 text-center"), css_class='flex flex-col flex-wrap w-1/3 mx-auto mt-10'),
         )

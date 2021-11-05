@@ -33,7 +33,7 @@
                     </a>
                 </div>
             </div>
-            <div class="flex border-t-2 border-gray-800 flex-wrap md:flex-nowrap"></div>
+            <div class="flex border-b-1 border-gray-800 flex-wrap md:flex-nowrap"></div>
             {% endfor %} {% for contact in contacts %}
             <div class="py-8 flex flex-wrap md:flex-nowrap">
                 <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
@@ -59,7 +59,7 @@
                     </a>
                 </div>
             </div>
-            <div class="flex border-t-2 border-gray-800 flex-wrap md:flex-nowrap"></div>
+            <div class="flex border-b-1 border-gray-800 flex-wrap md:flex-nowrap"></div>
             {% endfor %} {% for deal in deals %}
             <div class="py-8 flex flex-wrap md:flex-nowrap">
                 <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
@@ -81,7 +81,73 @@
                     </a>
                 </div>
             </div>
-            <div class="flex border-t-2 border-gray-800 flex-wrap md:flex-nowrap"></div>
+            <div class="flex border-b-1 border-gray-800 flex-wrap md:flex-nowrap"></div>
+            {% endfor %} {% for event in events %}
+            <div class="py-8 flex flex-wrap md:flex-nowrap">
+                <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+                    <span class="font-semibold title-font text-white">EVENT</span>
+                    <span class="mt-1 text-gray-500 text-sm">{{ event.date_from }} to {{ event.date_to }}</span>
+                </div>
+                <div class="md:flex-grow">
+                    <h2 class="text-2xl font-medium text-white title-font mb-2">{{ event }}</h2>
+                    <p class="leading-relaxed">
+                        {% if event.description != '' %} {{ event.description }} {% else %} No description provided for this event. {% endif %}
+                    </p>
+                    <a href="{% url 'events:event-detail' event.pk %}" class="text-pink-400 inline-flex items-center mt-4">View this event
+                        <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14"></path>
+                            <path d="M12 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="flex border-b-1 border-gray-800 flex-wrap md:flex-nowrap"></div>
+            {% endfor %} {% for product in products %}
+            <div class="py-8 flex flex-wrap md:flex-nowrap">
+                <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+                    <span class="font-semibold title-font text-white">PRODUCT</span>
+                    <span class="mt-1 text-gray-500 text-sm">
+                        {% if product_active %}
+                        Active
+                        {% else %}
+                        Inactive
+                        {% endif %}
+                    </span>
+                </div>
+                <div class="md:flex-grow">
+                    <h2 class="text-2xl font-medium text-white title-font mb-2">{{ product }}</h2>
+                    <p class="leading-relaxed">
+                        {% if product.description != '' %} {{ product.description }} {% else %} No description provided for this product. {% endif %}
+                    </p>
+                    <a href="{% url 'products:product-detail' product.pk %}" class="text-green-400 inline-flex items-center mt-4">View this product
+                        <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14"></path>
+                            <path d="M12 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="flex border-b-1 border-gray-800 flex-wrap md:flex-nowrap"></div>
+            {% endfor %} {% for task in tasks %}
+            <div class="py-8 flex flex-wrap md:flex-nowrap">
+                <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+                    <span class="font-semibold title-font text-white">TASK</span>
+                    <span class="mt-1 text-gray-500 text-sm">{{ task.due_date }}</span>
+                </div>
+                <div class="md:flex-grow">
+                    <h2 class="text-2xl font-medium text-white title-font mb-2">{{ task }}</h2>
+                    <p class="leading-relaxed">
+                        {% if task.description != '' %} {{ task.description }} {% else %} No description provided for this task. {% endif %}
+                    </p>
+                    <a href="{% url 'tasks:task-detail' task.pk %}" class="text-blue-400 inline-flex items-center mt-4">View this task
+                        <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14"></path>
+                            <path d="M12 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="flex border-b-1 border-gray-800 flex-wrap md:flex-nowrap"></div>
             {% endfor %}
         </div>
     </div>

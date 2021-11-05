@@ -6,6 +6,10 @@ from .forms import CustomUserCreationForm
 from companies.models import Company
 from contacts.models import Contact
 from deals.models import Deal
+from events.models import Event
+from products.models import Product
+from tasks.models import Task
+
 
 # Create your views here.
 
@@ -13,15 +17,21 @@ from deals.models import Deal
 def search(request):
     if request.method == 'POST':
         search = request.POST.get('search')
-        print(search)
         companies = Company.objects.filter(company_name__contains=search)
         contacts = Contact.objects.filter(first_name__contains=search)
         deals = Deal.objects.filter(deal_name__contains=search)
+        events = Event.objects.filter(title__contains=search)
+        products = Product.objects.filter(product_name__contains=search)
+        tasks = Task.objects.filter(task_name__contains=search)
+
         context = {
             'search': search,
             'companies': companies,
             'contacts': contacts,
-            'deals': deals
+            'deals': deals,
+            'events': events,
+            'products': products,
+            'tasks': tasks
         }
 
         return render(request, 'search.html', context)

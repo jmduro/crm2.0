@@ -21,9 +21,9 @@ class CompanyModelForm(forms.ModelForm):
             'billing_code',
             'featured',
         )
-        # help_texts = {
-        #     'company_name' : 'name'
-        # }
+        help_texts = {
+            'description': "This field will be visible in companies' list view."
+        }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

@@ -12,7 +12,7 @@
                     <a href="{% url 'contacts:contact-delete' contact.pk %}" class="flex-grow px-1 py-2 text-lg border-b-2 border-gray-800">Delete</a>
                 </div>
                 <form method="post">
-                    {% csrf_token %} {{ form|crispy }}
+                    {% csrf_token %} {% crispy form %}
                 </form>
             </div>
         </div>

@@ -40,6 +40,10 @@
                     <span class="text-gray-500">Description</span>
                     <span class="ml-auto text-white">{{ contact.description }}</span>
                 </div>
+                <div class="flex py-2 mb-6 border-t border-b border-gray-800">
+                    <span class="text-gray-500">Featured</span>
+                    <span class="ml-auto text-white">{{ contact.featured }}</span>
+                </div>
                 <div class="flex">
                     <a href="{% url 'contacts:contact-list' %}" class="flex px-6 py-2 ml-auto text-white bg-red-500 border-0 rounded focus:outline-none hover:bg-red-600">Go back to contact</a>
                 </div>

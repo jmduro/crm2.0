@@ -16,13 +16,13 @@ class ContactListView(LoginRequiredMixin, generic.ListView):
         active_user = self.request.user
         return Contact.objects.filter(user=active_user)
 
-    # def get_context_data(self, **kwargs):
-    #     context = super(ContactListView, self).get_context_data(**kwargs)
-    #     queryset = Contact.objects.filter(featured=True)
-    #     context.update({
-    #         'featured_contacts': queryset
-    #     })
-    #     return context
+    def get_context_data(self, **kwargs):
+        context = super(ContactListView, self).get_context_data(**kwargs)
+        queryset = Contact.objects.filter(featured=True)
+        context.update({
+            'featured_contacts': queryset
+        })
+        return context
 
 
 class ContactDetailView(LoginRequiredMixin, generic.DetailView):
@@ -36,17 +36,16 @@ class ContactDetailView(LoginRequiredMixin, generic.DetailView):
 class ContactCreateView(LoginRequiredMixin, generic.CreateView):
     template_name = 'contacts/contact_create.html'
     context_object_name = 'contacts'
-
     form_class = ContactModelForm
-
-    def get_success_url(self):
-        return reverse('contacts:contact-list')
 
     def form_valid(self, form):
         company = form.save(commit=False)
         company.user = self.request.user
         company.save()
         return super(ContactCreateView, self).form_valid(form)
+
+    def get_success_url(self):
+        return reverse('contacts:contact-list')
 
 
 class ContactUpdateView(LoginRequiredMixin, generic.UpdateView):

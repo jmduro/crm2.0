@@ -27,7 +27,7 @@ urlpatterns = [
     # path('products/', include('products.urls', namespace="products")),
     # path('events/', include('events.urls', namespace="events")),
     path('companies/', include('companies.urls', namespace='companies')),
-    # path('contacts/', include('contacts.urls', namespace='contacts')),
+    path('contacts/', include('contacts.urls', namespace='contacts')),
     # path('tasks/', include('tasks.urls', namespace='tasks')),
     # path('deals/', include('deals.urls', namespace="deals")),
 ]

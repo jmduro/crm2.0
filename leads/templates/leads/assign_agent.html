@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <p>
+        <a href = '{% url 'leads:lead-list' %}'>REGRESAR A LA LISTA DE LEADS</a>
+    </p>
+        <h1>ASIGNAR UN AGENTE A ESTE LEAD</h1>
+
+        <form method='post'>
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type = 'submit'>ASIGNAR</button>
+        </form>
+        <script src="" async defer></script>
+
+{% endblock content %}

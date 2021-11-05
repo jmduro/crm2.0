@@ -1,8 +1,7 @@
 from django import forms
 from .models import *
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Submit, Row, Column, Field, Div
-from crispy_forms.bootstrap import InlineCheckboxes
+from crispy_forms.layout import Layout, Submit, Field
 
 Field.template = 'custom_fields/custom_field.html'
 

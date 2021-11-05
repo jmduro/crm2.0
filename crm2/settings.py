@@ -41,8 +41,9 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_tailwind',
     #Models
-    'users',
     'companies',
+    'contacts',
+    'users',
 ]
 
 MIDDLEWARE = [

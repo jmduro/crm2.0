@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+   <style>
+        
+            @import url(https://fonts.googleapis.com/css?family=Erica+One);
+            /* BODY */
+            body {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                width: 100%;  
+                height: 100%;
+                background-color: pink;
+                
+                background-attachment: fixed;
+                background-size: 100% 100%;
+                overflow: hidden;
+            }
+            ::selection {
+                background: transparent;
+            }
+
+            h1 {
+                cursor: default;
+                position: absolute;
+                top: -600px;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                height: 50px;
+                margin: auto;
+                display: block;
+                
+                -webkit-animation: bounce .3s ease infinite alternate;
+                
+                font-family: 'Times New Roman', cursive;
+                font-size: 80px;
+                color: #FFF;
+                text-align: center;
+                line-height: 100px;
+                text-shadow: 0 1px 0 #CCC,
+                            0 2px 0 #CCC,
+                            0 3px 0 #CCC,
+                            0 4px 0 #CCC,
+                            0 5px 0 #CCC,
+                            0 6px 0 transparent,
+                            0 7px 0 transparent,
+                            0 8px 0 transparent,
+                            0 9px 0 transparent,
+                            0 10px 10px rgba(0, 0, 0, .6);
+            }
+
+            /* ANIMATION */
+            @-webkit-keyframes bounce {
+            100% {
+                top: -30px;
+                
+                text-shadow: 0 1px 0 #CCC,
+                            0 2px 0 #CCC,
+                            0 3px 0 #CCC,
+                            0 4px 0 #CCC,
+                            0 5px 0 #CCC,
+                            0 6px 0 #CCC,
+                            0 7px 0 #CCC,
+                            0 8px 0 #CCC,
+                            0 9px 0 #CCC,
+                            0 30px 30px rgba(0, 0, 0, .3);
+            }
+            }
+        
+</style>
+
+    <section class="text-gray-400 bg-gray-900 body-font">
+        <div class="container px-5 py-24 mx-auto flex flex-wrap">
+
+            <div class="flex flex-wrap -m-4">
+
+                {% if searched %}
+
+                    <div class='text-white ml-6 w-full mb-6 py-6 flex justify-between items-center border-b border-white-200'>
+                        <div>
+                            <h2 class='text-4xl text-white-800'>
+                                SE MUESTRAN LOS CONTACTOS CON COINCIDENCIA: {{searched}}
+                            </h2>
+                        </div>
+                    </div>
+
+                    {% for lead in leads %}
+                        <div class="p-4 lg:w-3/2 md:w-full">
+                            <div class="flex border-2 rounded-lg border-gray-800 p-8 sm:flex-row flex-col">
+                            <div class="w-16 h-16 sm:mr-8 sm:mb-0 mb-4 inline-flex items-center justify-center rounded-full bg-gray-800 text-purple-400 flex-shrink-0">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-8 h-8" viewBox="0 0 24 24">
+                                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                            <div class="flex-grow">
+                                <h2 class="text-white text-lg title-font font-medium mb-3">
+                                    {{ lead }}
+                                </h2>
+                                <p class="leading-relaxed text-base">
+                                    {{lead.description}}</p>
+                                <a href='{% url 'leads:lead-detail' lead.pk %}' class="mt-3 text-purple-400 inline-flex items-center">
+                                    MOSTRAR DETALLES DEL CONTACTO
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                </svg>
+                                </a>
+                            </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                {% else %}
+                    <center>
+                        <h1>
+                            ¡OH OH >.< 
+                            NO BUSCASTE NADA!
+                        </h1>
+                    </center>
+                {% endif %}
+            </div>
+
+            <div class = 'mx-auto mt-60 py-5 px-5 rounded-lg border border-t border-white-200 mt-24 mb-16'>
+                <a class = 'text-white hover:text-pink-300' href = '{% url 'leads:lead-list' %}'>REGRESAR A LA LISTA DE CONTACTOS</a>
+            </div>
+
+
+        </div>
+    </section> 
+
+
+{% endblock content %}

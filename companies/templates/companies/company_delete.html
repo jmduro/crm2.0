@@ -5,7 +5,7 @@
         <div class="flex flex-wrap mx-auto lg:w-4/5">
             <div class="w-full mb-6 lg:w-1/2 lg:pr-10 lg:py-6 lg:mb-0">
                 <h2 class="text-sm tracking-widest text-gray-500 title-font">COMPANY</h2>
-                <h1 class="mb-4 text-3xl font-medium text-white title-font">{{ company.company_name }}</h1>
+                <h1 class="mb-4 text-3xl font-medium text-white title-font">{{ company }}</h1>
                 <div class="flex mb-4">
                     <a href="{% url 'companies:company-detail' company.pk %}" class="flex-grow px-1 py-2 text-lg border-b-2 border-gray-800">Details</a>
                     <a href="{% url 'companies:company-update' company.pk %}" class="flex-grow px-1 py-2 text-lg border-b-2 border-gray-800">Update</a>

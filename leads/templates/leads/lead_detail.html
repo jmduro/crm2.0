@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="text-gray-400 bg-gray-900 body-font overflow-hidden">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="lg:w-4/5 mx-auto flex flex-wrap">
+      <div class="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
+        <h2 class="text-xl title-font text-gray-500 tracking-widest">
+            {{ lead.first_name }}
+        </h2>
+        <div class="flex mb-4 text-center">
+          <a href = '{% url 'leads:lead-detail' lead.pk %}' class="flex-grow text-pink-400 border-b-2 border-pink-500 py-2 text-lg px-1">
+            INFORMACION DE CONTACTO
+          </a>
+          <a href = '{% url 'leads:lead-update' lead.pk %}' class="flex-grow border-b-2 border-gray-800 py-2 text-lg px-1">
+            ACTUALIZAR INFORMACION
+          </a>
+        </div>
+        <p class="leading-relaxed mb-4">{{ lead.description}}</p>
+        <div class="flex border-t border-gray-800 py-2">
+          <span class="text-gray-500">Apellido: </span>
+          <span class="ml-auto text-white">{{ lead.last_name }}</span>
+        </div>
+        <div class="flex border-t border-gray-800 py-2">
+          <span class="text-gray-500">Título: </span>
+          <span class="ml-auto text-white">{{ lead.title }}</span>
+        </div>
+        <div class="flex border-t border-b mb-6 border-gray-800 py-2">
+          <span class="text-gray-500">Correo Electrónico: </span>
+          <span class="ml-auto text-white">{{lead.email}}</span>
+        </div>
+        <div class="flex border-t border-b mb-6 border-gray-800 py-2">
+          <span class="text-gray-500">Agente Asociado: </span>
+          <span class="ml-auto text-white">{{lead.agent}}</span>
+        </div>
+        <div class="flex border-t border-b mb-6 border-gray-800 py-2">
+          <span class="text-gray-500">Celular: </span>
+          <span class="ml-auto text-white">{{lead.mobile}}</span>
+        </div>
+        <div class="flex border-t border-b mb-6 border-gray-800 py-2">
+          <span class="text-gray-500">Teléfono: </span>
+          <span class="ml-auto text-white">{{lead.phone_number}}</span>
+        </div>
+        <div class="flex border-t border-gray-800 py-2">
+          <span class="text-gray-500">Teléfono de casa: </span>
+          <span class="ml-auto text-white">{{ lead.home_phone }}</span>
+        </div>
+
+      </div>
+      <img alt="ecommerce" class="border-white-800 lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="https://i.ibb.co/rGkdbZX/contact.jpg">
+    </div>
+  </div>
+</section>
+
+{% endblock content %}
+        

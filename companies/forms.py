@@ -3,8 +3,6 @@ from .models import *
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit, Field
 
-Field.template = 'custom_fields/custom_field.html'
-
 
 class CompanyModelForm(forms.ModelForm):
     class Meta:

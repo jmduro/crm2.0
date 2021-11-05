@@ -24,7 +24,7 @@ class ContactModelForm(forms.ModelForm):
             'featured',
         )
         help_texts = {
-            'description': "This field will be visible in companies' list view."
+            'description': "This field will be visible in contacts' list view."
         }
 
     def __init__(self, *args, **kwargs):

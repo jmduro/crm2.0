@@ -14,7 +14,8 @@ class ContactModelForm(forms.ModelForm):
             'email',
             'company_name',
             'mobile',
-            'phone_number',
+            'phone',
             'home_phone',
+            'email_opt_out',
             'description',
         )

@@ -1,0 +1,48 @@
+{% extends "base.html" %} {% block content %}
+
+<section class="max-h-full min-h-screen overflow-hidden text-gray-400 bg-gray-900 body-font">
+    <div class="container px-5 py-24 mx-auto">
+        <div class="flex flex-wrap mx-auto lg:w-4/5">
+            <div class="w-full mb-6 lg:w-1/2 lg:pr-10 lg:py-6 lg:mb-0">
+                <h2 class="text-sm tracking-widest text-gray-500 title-font">EVENT</h2>
+                <h1 class="mb-4 text-3xl font-medium text-white title-font">{{ event.event_title }}</h1>
+                <div class="flex mb-4">
+                    <a class="flex-grow px-1 py-2 text-lg text-pink-400 border-b-2 border-pink-500">Details</a>
+                    <a href="{% url 'events:event-update' event.pk %}" class="flex-grow px-1 py-2 text-lg border-b-2 border-gray-800">Update</a>
+                    <a href="{% url 'events:event-delete' event.pk %}" class="flex-grow px-1 py-2 text-lg border-b-2 border-gray-800">Delete</a>
+                </div>
+                <p class="mb-4 leading-relaxed">This are the details of this event.</p>
+                <div class="flex py-2 border-t border-gray-800">
+                    <span class="text-gray-500">From</span>
+                    <span class="ml-auto text-white">{{ event.event_from }}</span>
+                </div>
+                <div class="flex py-2 border-t border-gray-800">
+                    <span class="text-gray-500">To</span>
+                    <span class="ml-auto text-white">{{ event.to }}</span>
+                </div>
+                <div class="flex py-2 border-t border-gray-800">
+                    <span class="text-gray-500">Repeat</span>
+                    <span class="ml-auto text-white">{{ event.repeat }}</span>
+                </div>
+                <div class="flex py-2 border-t border-gray-800">
+                    <span class="text-gray-500">Location</span>
+                    <span class="ml-auto text-white">{{ event.location }}</span>
+                </div>
+                <div class="flex py-2 border-t border-gray-800">
+                    <span class="text-gray-500">Related To</span>
+                    <span class="ml-auto text-white">{{ event.related_to }}</span>
+                </div>
+                <div class="flex py-2 mb-6 border-t border-b border-gray-800">
+                    <span class="text-gray-500">Description</span>
+                    <span class="ml-auto text-white">{{ event.description }}</span>
+                </div>
+                <div class="flex">
+                    <a href="{% url 'events:event-list' %}" class="flex px-6 py-2 ml-auto text-white bg-pink-500 border-0 rounded focus:outline-none hover:bg-pink-600">Go back to events</a>
+                </div>
+            </div>
+            <img alt="ecommerce" class="object-cover object-center w-full h-64 rounded lg:w-1/2 lg:h-auto" src="https://dummyimage.com/400x400">
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

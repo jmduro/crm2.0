@@ -1,0 +1,24 @@
+{% extends "base.html" %} {% load tailwind_filters %} {% block content %}
+
+<section class="max-h-full min-h-full overflow-hidden text-gray-400 bg-gray-900 body-font">
+    <div class="container px-5 py-24 mx-auto">
+        <a href="{% url 'tasks:task-list' %}" class="px-6 py-2 text-white bg-blue-500 border-0 rounded hover:bg-blue-600">Go back to tasks</a>
+        <div class="flex flex-wrap mx-auto lg:w-4/5">
+            <div class="max-w-full mx-auto mb-6 lg:w-1/2 lg:pr-10 lg:py-6 lg:mb-0">
+                <h2 class="text-sm tracking-widest text-gray-500 title-font">TASK</h2>
+                <h1 class="mb-4 text-3xl font-medium text-white title-font">Create new task</h1>
+                <form method="post">
+                    {% csrf_token %} {{ form|crispy }}
+                    <button type="submit" class="flex px-6 py-2 ml-auto text-white bg-blue-500 border-0 rounded focus:outline-none hover:bg-blue-600">Create task</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    $("input[name='due_date']").datepicker({
+        dateFormat: "yy-mm-dd"
+    });
+</script>
+{% endblock content %}

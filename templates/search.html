@@ -1,0 +1,90 @@
+{% extends "base.html" %} {% block content %}
+
+<section class="text-gray-400 bg-gray-900 body-font overflow-hidden min-h-screen max-h-full">
+    <div class="container px-5 py-24 mx-auto">
+        {% if search %}
+        <h1 class="text-2xl font-medium text-white sm:text-3xl title-font mb-8">You searched for {{ search }}</h1>
+        {% else %}
+        <h1 class="text-2xl font-medium text-white sm:text-3xl title-font mb-8">You forgot to search for something! Try again</h1>
+        {% endif %}
+        <div class="-my-8 divide-y-2 divide-gray-800">
+            {% for company in companies %}
+            <div class="py-8 flex flex-wrap md:flex-nowrap">
+                <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+                    <span class="font-semibold title-font text-white">COMPANY</span>
+                    <span class="mt-1 text-gray-500 text-sm">
+                        {% if company.featured %}
+                        Featured
+                        {% else %}
+                        All companies
+                        {% endif %}
+                    </span>
+                </div>
+                <div class="md:flex-grow">
+                    <h2 class="text-2xl font-medium text-white title-font mb-2">{{ company }}</h2>
+                    <p class="leading-relaxed">
+                        {% if company.description != '' %} {{ company.description }} {% else %} No description provided for this company. {% endif %}
+                    </p>
+                    <a href="{% url 'companies:company-detail' company.pk %}" class="text-purple-400 inline-flex items-center mt-4">View this company
+                        <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14"></path>
+                            <path d="M12 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="flex border-t-2 border-gray-800 flex-wrap md:flex-nowrap"></div>
+            {% endfor %} {% for contact in contacts %}
+            <div class="py-8 flex flex-wrap md:flex-nowrap">
+                <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+                    <span class="font-semibold title-font text-white">CONTACT</span>
+                    <span class="mt-1 text-gray-500 text-sm">
+                        {% if contact.featured %}
+                        Featured
+                        {% else %}
+                        All contacts
+                        {% endif %}
+                    </span>
+                </div>
+                <div class="md:flex-grow">
+                    <h2 class="text-2xl font-medium text-white title-font mb-2">{{ contact }}</h2>
+                    <p class="leading-relaxed">
+                        {% if contact.description != '' %} {{ contact.description }} {% else %} No description provided for this contact. {% endif %}
+                    </p>
+                    <a href="{% url 'contacts:contact-detail' contact.pk %}" class="text-red-400 inline-flex items-center mt-4">View this contact
+                        <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14"></path>
+                            <path d="M12 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="flex border-t-2 border-gray-800 flex-wrap md:flex-nowrap"></div>
+            {% endfor %} {% for deal in deals %}
+            <div class="py-8 flex flex-wrap md:flex-nowrap">
+                <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+                    <span class="font-semibold title-font text-white">DEAL</span>
+                    <span class="mt-1 text-gray-500 text-sm">
+                        TODO
+                    </span>
+                </div>
+                <div class="md:flex-grow">
+                    <h2 class="text-2xl font-medium text-white title-font mb-2">{{ deal }}</h2>
+                    <p class="leading-relaxed">
+                        {% if deal.description != '' %} {{ deal.description }} {% else %} No description provided for this deal. {% endif %}
+                    </p>
+                    <a href="{% url 'deals:deal-detail' deal.pk %}" class="text-indigo-400 inline-flex items-center mt-4">View this deal
+                        <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14"></path>
+                            <path d="M12 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="flex border-t-2 border-gray-800 flex-wrap md:flex-nowrap"></div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

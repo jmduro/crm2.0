@@ -2,7 +2,8 @@ from django import forms
 from .models import Event
 from contacts.models import Contact
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Submit, Field
+from crispy_forms.layout import Field, Layout, Submit
+
 
 class EventModelForm(forms.ModelForm):
     class Meta:
@@ -17,7 +18,7 @@ class EventModelForm(forms.ModelForm):
             'description',
         )
         help_texts = {
-            'description': "This field will be visible in companies' list view."
+            'description': "This field will be visible in events' list view."
         }
 
     def __init__(self, *args, **kwargs):
@@ -26,8 +27,8 @@ class EventModelForm(forms.ModelForm):
         self.helper.label_class = 'block text-pink-700 text-sm font-bold mb-2'
         self.helper.layout = Layout(
             'title',
-            'date_from',
-            'date_to',
+            Field('date_from', autocomplete='off'),
+            Field('date_to', autocomplete='off'),
             'repeat',
             'location',
             'related_to',

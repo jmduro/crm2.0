@@ -1,4 +1,4 @@
-{% extends "base.html" %} {% load tailwind_filters %} {% block content %}
+{% extends "base.html" %} {% load tailwind_filters %} {% load crispy_forms_tags %} {% block content %}
 
 <section class="overflow-hidden text-gray-400 bg-gray-900 body-font min-h-screen max-h-full">
     <div class="container px-5 py-24 mx-auto">
@@ -9,8 +9,7 @@
             <div class="w-full mb-6 lg:w-1/2 lg:pr-10 lg:py-6 lg:mb-0">
                 <h2 class="text-sm tracking-widest text-gray-500 title-font mb-4">NEW COMPANY</h2>
                 <form method="post">
-                    {% csrf_token %} {{ form|crispy }}
-                    <button type="submit" class="flex px-6 py-2 ml-auto text-white bg-purple-500 border-0 rounded focus:outline-none hover:bg-purple-600">Create company</button>
+                    {% csrf_token %} {% crispy form %}
                 </form>
             </div>
         </div>

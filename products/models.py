@@ -11,7 +11,7 @@ class Product(models.Model):
     # Pendiente función categoría
     product_category = models.CharField(max_length=20)
     unit_price = models.FloatField(default=0)
-    description = models.TextField(max_length=250, blank=True)
+    description = models.CharField(max_length=250, blank=True)
     product_active = models.BooleanField(default=False)
 
     def __str__(self):

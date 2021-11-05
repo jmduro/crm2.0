@@ -4,6 +4,8 @@ from contacts.models import Contact
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Field, Layout, Submit
 
+Field.template = 'custom_fields/custom_field.html'
+
 
 class EventModelForm(forms.ModelForm):
     class Meta:

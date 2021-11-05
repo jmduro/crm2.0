@@ -1,4 +1,4 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %} {% load tailwind_filters %} {% load crispy_forms_tags %} {% block content %}
 
 <section class="max-h-screen min-h-full overflow-hidden text-gray-400 bg-gray-900 body-font">
     <div class="container px-5 py-24 mx-auto">
@@ -12,11 +12,9 @@
                     <a href="{% url 'tasks:task-delete' task.pk %}" class="flex-grow px-1 py-2 text-lg border-b-2 border-gray-800">Delete</a>
                 </div>
                 <form method="post">
-                    {% csrf_token %} {{ form.as_p }}
-                    <button type="submit" class="flex px-6 py-2 ml-auto text-white bg-blue-500 border-0 rounded focus:outline-none hover:bg-blue-600">Submit</button>
+                    {% csrf_token %} {% crispy form %}
                 </form>
             </div>
-            <img alt="ecommerce" class="object-cover object-center w-full h-64 rounded lg:w-1/2 lg:h-auto" src="https://dummyimage.com/400x400">
         </div>
     </div>
 </section>

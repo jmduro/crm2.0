@@ -1,4 +1,4 @@
-{% extends "base.html" %} {% load tailwind_filters %} {% block content %}
+{% extends "base.html" %} {% load tailwind_filters %} {% load crispy_forms_tags %} {% block content %}
 
 <section class="max-h-full min-h-full overflow-hidden text-gray-400 bg-gray-900 body-font">
     <div class="container px-5 py-24 mx-auto">
@@ -8,8 +8,7 @@
                 <h2 class="text-sm tracking-widest text-gray-500 title-font">TASK</h2>
                 <h1 class="mb-4 text-3xl font-medium text-white title-font">Create new task</h1>
                 <form method="post">
-                    {% csrf_token %} {{ form|crispy }}
-                    <button type="submit" class="flex px-6 py-2 ml-auto text-white bg-blue-500 border-0 rounded focus:outline-none hover:bg-blue-600">Create task</button>
+                    {% csrf_token %} {% crispy form %}
                 </form>
             </div>
         </div>

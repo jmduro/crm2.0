@@ -16,7 +16,7 @@ class Event(models.Model):
     location = models.CharField(max_length=50, blank=True)
     related_to = models.ForeignKey(
         Contact, on_delete=models.CASCADE, blank=True)
-    description = models.TextField(max_length=250, blank=True)
+    description = models.CharField(max_length=250, blank=True)
 
     def __str__(self):
-        return f'{self.event_title}'
+        return f'{self.title}'

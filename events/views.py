@@ -29,9 +29,6 @@ class EventCreateView(LoginRequiredMixin, generic.CreateView):
     template_name = "events/event_create.html"
     form_class = EventModelForm
 
-    def get_form_kwargs(self):
-        return {'request': self.request}
-
     def get_success_url(self):
         return reverse("events:event-list")
 
@@ -45,9 +42,6 @@ class EventCreateView(LoginRequiredMixin, generic.CreateView):
 class EventUpdateView(LoginRequiredMixin, generic.UpdateView):
     template_name = "events/event_update.html"
     form_class = EventModelForm
-
-    def get_form_kwargs(self):
-        return {'request': self.request}
 
     def get_success_url(self):
         return reverse("events:event-list")

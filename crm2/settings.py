@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     #Models
     'companies',
     'contacts',
+    'tasks',
+    'events',
     'users',
 ]
 

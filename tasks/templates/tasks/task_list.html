@@ -16,14 +16,14 @@
                 </div>
             </div>
         </div>
-        <div class="flex flex-wrap -m-4">
+        <div class="flex flex-wrap w-full">
             {% for task in tasks %}
             <div class="p-4 md:w-1/3">
                 <div class="flex flex-col h-full p-8 bg-gray-800 rounded-lg bg-opacity-60">
                     <div class="flex items-center mb-3">
                         <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 mr-3 text-white bg-blue-500 rounded-full">
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M11 17a1 1 0 001.447.894l4-2A1 1 0 0017 15V9.236a1 1 0 00-1.447-.894l-4 2a1 1 0 00-.553.894V17zM15.211 6.276a1 1 0 000-1.788l-4.764-2.382a1 1 0 00-.894 0L4.789 4.488a1 1 0 000 1.788l4.764 2.382a1 1 0 00.894 0l4.764-2.382zM4.447 8.342A1 1 0 003 9.236V15a1 1 0 00.553.894l4 2A1 1 0 009 17v-5.764a1 1 0 00-.553-.894l-4-2z" />
                             </svg>
                         </div>
                         <h2 class="text-lg font-medium text-white title-font">
@@ -32,7 +32,7 @@
                     </div>
                     <div class="flex-grow">
                         <p class="text-base leading-relaxed">
-                            Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine. Aquí va la desc del contacto.......
+                            {% if task.description == '' %} No description provided for this task. {% else %} {{ task.description }} {% endif %}
                         </p>
                         <a href="{% url 'tasks:task-detail' task.pk %}" class="inline-flex items-center mt-3 text-blue-400">
                             View this task

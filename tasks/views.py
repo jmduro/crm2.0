@@ -29,9 +29,6 @@ class TaskCreateView(LoginRequiredMixin, generic.CreateView):
     template_name = 'tasks/task_create.html'
     form_class = TaskModelForm
 
-    def get_form_kwargs(self):
-        return {'request': self.request}
-
     def get_success_url(self):
         return reverse('tasks:task-list')
 
@@ -45,9 +42,6 @@ class TaskCreateView(LoginRequiredMixin, generic.CreateView):
 class TaskUpdateView(LoginRequiredMixin, generic.UpdateView):
     template_name = 'tasks/task_update.html'
     form_class = TaskModelForm
-
-    def get_form_kwargs(self):
-        return {'request': self.request}
 
     def get_success_url(self):
         return reverse('tasks:task-list')

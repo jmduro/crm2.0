@@ -1,22 +1,20 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %} {% load tailwind_filters %} {% load crispy_forms_tags %} {% block content %}
 
 <section class="max-h-full min-h-screen overflow-hidden text-gray-400 bg-gray-900 body-font">
     <div class="container px-5 py-24 mx-auto">
         <div class="flex flex-wrap mx-auto lg:w-4/5">
             <div class="w-full mb-6 lg:w-1/2 lg:pr-10 lg:py-6 lg:mb-0">
                 <h2 class="text-sm tracking-widest text-gray-500 title-font">EVENT</h2>
-                <h1 class="mb-4 text-3xl font-medium text-white title-font">{{ event.event_title }}</h1>
+                <h1 class="mb-4 text-3xl font-medium text-white title-font">{{ event }}</h1>
                 <div class="flex mb-4">
                     <a href="{% url 'events:event-detail' event.pk %}" class="flex-grow px-1 py-2 text-lg border-b-2 border-gray-800">Details</a>
                     <a class="flex-grow px-1 py-2 text-lg text-pink-400 border-b-2 border-pink-500">Update</a>
                     <a href="{% url 'events:event-delete' event.pk %}" class="flex-grow px-1 py-2 text-lg border-b-2 border-gray-800">Delete</a>
                 </div>
                 <form method="post">
-                    {% csrf_token %} {{ form.as_p }}
-                    <button type="submit" class="flex px-6 py-2 ml-auto text-white bg-pink-500 border-0 rounded focus:outline-none hover:bg-pink-600">Submit</button>
+                    {% csrf_token %} {% crispy form %}
                 </form>
             </div>
-            <img alt="ecommerce" class="object-cover object-center w-full h-64 rounded lg:w-1/2 lg:h-auto" src="https://dummyimage.com/400x400">
         </div>
     </div>
 </section>

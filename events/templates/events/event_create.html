@@ -1,15 +1,15 @@
-{% extends "base.html" %} {% load tailwind_filters %} {% block content %}
+{% extends "base.html" %} {% load tailwind_filters %} {% load crispy_forms_tags %} {% block content %}
 
 <section class="max-h-full min-h-screen overflow-hidden text-gray-400 bg-gray-900 body-font">
     <div class="container px-5 py-24 mx-auto">
-        <a href="{% url 'events:event-list' %}" class="px-6 py-2 text-white bg-pink-500 border-0 rounded hover:bg-pink-600">Go back to events</a>
+        <div class="flex flex-wrap mx-auto mb-4 lg:w-4/5">
+            <a href="{% url 'events:event-list' %}" class="px-6 py-2 text-white bg-pink-500 border-0 rounded hover:bg-pink-600">Go back to events</a>
+        </div>
         <div class="flex flex-wrap mx-auto lg:w-4/5">
             <div class="max-w-full mx-auto mb-6 lg:w-1/2 lg:pr-10 lg:py-6 lg:mb-0">
-                <h2 class="text-sm tracking-widest text-gray-500 title-font">EVENT</h2>
-                <h1 class="mb-4 text-3xl font-medium text-white title-font">Create new event</h1>
+                <h2 class="text-sm tracking-widest text-gray-500 title-font mb-4">NEW EVENT</h2>
                 <form method="post">
-                    {% csrf_token %} {{ form|crispy }}
-                    <button type="submit" class="flex px-6 py-2 ml-auto text-white bg-pink-500 border-0 rounded focus:outline-none hover:bg-pink-600">Create event</button>
+                    {% csrf_token %} {% crispy form %}
                 </form>
             </div>
         </div>

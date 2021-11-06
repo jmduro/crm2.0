@@ -15,6 +15,16 @@ class ProductListView(LoginRequiredMixin, generic.ListView):
         active_user = self.request.user
         return Product.objects.filter(user=active_user)
 
+    def get_context_data(self, **kwargs):
+        context = super(ProductListView, self).get_context_data(**kwargs)
+        queryset1 = Product.objects.filter(product_active=True)
+        queryset2 = Product.objects.filter(product_active=False)
+        context.update({
+            'active_products': queryset1,
+            'inactive_products': queryset2
+        })
+        return context
+
 
 class ProductDetailView(LoginRequiredMixin, generic.DetailView):
     template_name = "products/product_detail.html"

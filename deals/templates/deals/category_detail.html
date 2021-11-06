@@ -1,0 +1,30 @@
+{% extends "base.html" %} {% load tailwind_filters %} {% load crispy_forms_tags %} {% block content %}
+
+<section class="text-gray-400 bg-gray-900 body-font">
+    <div class="container px-5 py-24 mx-auto">
+        <div class="flex flex-col text-center w-full mb-20">
+            <h1 class="sm:text-4xl text-3xl font-medium title-font mb-2 text-white">{{ name }}</h1>
+            <p class="lg:w-2/3 mx-auto leading-relaxed text-base">All deals with a {{ name }} stage.</p>
+        </div>
+        <div class="lg:w-2/3 w-full mx-auto overflow-auto">
+            <table class="table-auto w-full text-left whitespace-no-wrap">
+                <thead>
+                    <tr>
+                        <th class="px-4 py-3 title-font tracking-wider font-medium text-white text-sm text-center bg-gray-800">Deal Name</th>
+                        <th class="px-4 py-3 title-font tracking-wider font-medium text-white text-sm text-center bg-gray-800">Closing Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for category in category_list %} {% if category == name %}
+                    <tr>
+                        <td class="px-4 py-3 text-center">{{ deal.deal_name }}</td>
+                        <td class="px-4 py-3 text-center">{{ deal.closing_date }}</td>
+                    </tr>
+                    {% endif %} {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

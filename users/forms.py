@@ -34,6 +34,7 @@ class CustomUserCreationForm(UserCreationForm):
                 'first_name',
                 'last_name',
                 'phone',
+                'password',
                 Div(
                     Submit('submit', 'Submit', css_class="px-6 py-2 text-white bg-red-500 border-0 rounded hover:bg-red-600 text-center"), css_class='flex flex-col flex-wrap w-1/3 mx-auto mt-10'),
         )
